@@ -1,0 +1,26 @@
+{
+  "name": "green-lead",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {
+    "firebase": "^9.15.0",
+    "webpack": "^5.75.0",
+    "webpack-cli": "^5.0.1"
+  },
+  "scripts": {
+    "test": "echo/ Error: no test specified/",
+    "build": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/A-K-Developer/Green-Lead.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/A-K-Developer/Green-Lead/issues"
+  },
+  "homepage": "https://github.com/A-K-Developer/Green-Lead#readme",
+  "description": ""
+}
