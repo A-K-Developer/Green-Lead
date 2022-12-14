@@ -11,7 +11,9 @@ import {
     orderBy,serverTimestamp,
     getDoc,
 } from 'firebase/firestore'
-import './main.js';
+
+console.log('Koteee');  
+
 
 const firebaseConfig = {
     apiKey: "AIzaSyBKt9WQuyMAostTmdvGwCvd3JwlVZQtZ3Y",
@@ -97,4 +99,3 @@ onSnapshot(docRef, (doc) => {
     //console.log(doc.data(), doc.id)
 })
 
-console.log('lqllql');

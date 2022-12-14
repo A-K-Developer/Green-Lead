@@ -1,0 +1,68 @@
+:root{
+    --backgroundColor : #212F2B;
+    --fontColor: #DDDDDD;
+    --fontSizeMobileV1: 20px;
+    --fontFamily: "Verdana";
+}
+html{
+    margin: 0;
+    padding: 0;
+}
+body{
+    margin: 0;
+    padding: 0;
+}
+
+#formExample{
+    display: none;
+}
+
+
+.slide { 
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+}
+#content{
+    display: flex;
+    flex-direction: row;
+    width: 400vw;
+    transform: rotate(90deg) translateY(-100vh);
+    transform-origin: top left ;
+}
+
+.one{background-color: var(--backgroundColor);}
+.two{background-color: blue;}
+.three{background-color: red;}
+#frame{
+    width: 100vh;
+    height: 100vw;
+    transform: rotate(-90deg) translateX(-100vh);
+    transform-origin: top left; 
+    overflow-y: scroll;
+    overflow-x: hidden;
+    position: absolute;
+    scrollbar-width: none;
+    -ms-overflow-style:none;
+}
+::-webkit-scrollbar{
+    display: none;
+}
+
+#verticalDevice{
+    background-color: var(--backgroundColor);
+    width: 100vw;
+    height: 100vh;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#verticalDevice p{
+    width: 50%;
+    margin: 0 auto;
+    color: var(--fontColor);
+    font-family: var(--fontFamily);
+
+}

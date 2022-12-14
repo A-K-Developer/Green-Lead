@@ -1,6 +1,6 @@
 let main = document.querySelector('main');
 
-
+window.addEventListener('scroll',() => console.log('YES'));
 console.log('Hello Lavi');
 if(screen.width < 800){
     console.log('Mobile lqlqllqlq')
@@ -11,7 +11,7 @@ if(screen.width < 800){
     createElement('img',imgContainer,'',['src','../img/mobile.png','alt','deviceImg'],'',['phone','phoneX'],'','')
     createElement('img',imgContainer,'',['src','../img/1.png','alt','deviceImg'],'',['phone','phoneY'],'','')
 }else{
-    
+    canvasforMobile(main)
     createSlideShow();
 }   
 
@@ -20,8 +20,10 @@ function createSlideShow(){
     let content = createElement('div',frame,'content','','','','','')
     let slideOne = createElement('div',content,'','','',['slide','one'],'','')
 
-    canvasforMobile(content)
     
+    content.addEventListener('click' , () => {
+        console.log('his');
+    })
     createElement('img',slideOne,'',['src','../img/Artboard3.png','alt','ImgMissing'],'',['windturbin'],'','',)
     createElement('img',slideOne,'',['src','../img/Artboard4.png','alt','ImgMissing'],'',['windturbinSpin'],'','',)
 
@@ -32,6 +34,8 @@ function createSlideShow(){
 
     createElement('div',content,'','','',['slide','two'],'','')
     createElement('div',content,'','','',['slide','three'],'','')
+
+    
 }
 function canvasforMobile(main){
     let slideFrameContainer = createElement('section',main,'frameContainer','','','','','');
@@ -51,11 +55,15 @@ function canvasforMobile(main){
     createElement('img',bottomNav,'',['src','../img/rightArrow.png','alt','iconMissing-insta'],'',['icon'],'','')
     createElement('div',bottomNav,'','','',['line', 'line3'],'','');
 
-    
+    slideFrameContainer.addEventListener('click', (e) => {
+        console.log('hello maci');
+    })
 }
+console.log('maci');
 function myFunc(){
     console.log('okey');
 }
+myFunc()
 /*
     <div id="frame">
         <div id="content">
@@ -111,8 +119,4 @@ function createElement(type, parent, id, attributeArr,
 
     return container
 }
-function scrooll(){
-
-    let scrollpozition = window.scrollX;
-    console.log(window.screenX);
-}
+console.log(5-34)
