@@ -53,7 +53,9 @@ function canvasforMobile(main){
 
     
 }
-
+function myFunc(){
+    console.log('okey');
+}
 /*
     <div id="frame">
         <div id="content">
@@ -109,8 +111,8 @@ function createElement(type, parent, id, attributeArr,
 
     return container
 }
+function scrooll(){
 
-
-window.addEventListener('scroll', ()=>{
-    console.log('hiii');
-})
+    let scrollpozition = window.scrollX;
+    console.log(window.screenX);
+}
