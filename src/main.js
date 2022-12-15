@@ -1,9 +1,9 @@
 let main = document.querySelector('main');
 
-window.addEventListener('scroll',() => console.log('YES'));
-console.log('Hello Lavi');
+window.addEventListener('scroll',() => console.log('scroll on window element'));
+console.log('Hello i am Main.js');
 if(screen.width < 800){
-    console.log('Mobile lqlqllqlq')
+    console.log('Mobile under 800px')
     let verticalDevice = createElement('div',main, 'verticalDevice','','','','','')
     createElement('p',verticalDevice,'','','','','',`Hi.`)
     createElement('p',verticalDevice,'','','','','',`For a better experience,please, turn your device horizontally.`)
@@ -19,10 +19,10 @@ function createSlideShow(){
     let frame = createElement('div',main,'frame','','','','','')
     let content = createElement('div',frame,'content','','','','','')
     let slideOne = createElement('div',content,'','','',['slide','one'],'','')
-
     
-    content.addEventListener('click' , () => {
-        console.log('his');
+    
+    slideOne.addEventListener('scroll' , (e) => {
+        console.log('scroll on slide');
     })
     createElement('img',slideOne,'',['src','../img/Artboard3.png','alt','ImgMissing'],'',['windturbin'],'','',)
     createElement('img',slideOne,'',['src','../img/Artboard4.png','alt','ImgMissing'],'',['windturbinSpin'],'','',)
@@ -59,11 +59,7 @@ function canvasforMobile(main){
         console.log('hello maci');
     })
 }
-console.log('maci');
-function myFunc(){
-    console.log('okey');
-}
-myFunc()
+
 /*
     <div id="frame">
         <div id="content">
@@ -119,4 +115,3 @@ function createElement(type, parent, id, attributeArr,
 
     return container
 }
-console.log(5-34)

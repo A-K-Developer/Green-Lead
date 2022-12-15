@@ -12,7 +12,7 @@ import {
     getDoc,
 } from 'firebase/firestore'
 
-console.log('Koteee');  
+console.log('Hello i am App.js');  
 
 
 const firebaseConfig = {
