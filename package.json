@@ -22,5 +22,8 @@
     "url": "https://github.com/A-K-Developer/Green-Lead/issues"
   },
   "homepage": "https://github.com/A-K-Developer/Green-Lead#readme",
-  "description": ""
+  "description": "",
+  "dependencies": {
+    "animate.css": "^4.1.1"
+  }
 }

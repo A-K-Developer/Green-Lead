@@ -4,6 +4,7 @@
     --fontSizeMobileV1: 20px;
     --fontFamily: "Verdana";
 }
+
 *{
     margin: 0;
     padding: 0;
@@ -75,12 +76,12 @@ html,body,.main-container,.container{
 }
 .windAnimation{
     animation-name: windTurbin;
-    animation-duration: 3s;
+    animation-duration: 2s;
 }
 
 @keyframes windTurbin{
     0%{ }
-    100%{ transform: rotate(360deg)}
+    100%{ transform: rotate(120deg)}
 }
 #header{
     position: fixed;
@@ -102,6 +103,7 @@ html,body,.main-container,.container{
     font-size: 0.9em;
     font-weight: bold;
     border-radius: 4px;
+    --animate-duration: 2s;
 }
 .icon{
     width: 30px;
@@ -175,10 +177,25 @@ html,body,.main-container,.container{
     gap: 20px;
     
 }
+#spanReplace{
+    color: var(--fontColor);
+}
+#heading{
+    animation-duration: 0.5s;
+
+}
+#textContainer p{
+    animation-duration: 0.5s;
+}
 img{
     width: 20%;
     height: 40%;
     
+}
+.bigCircle{
+    background-color: var(--fontColor);
+    width: 10px;
+    height: 10px;
 }
 /* scroll */
 ::-webkit-scrollbar {

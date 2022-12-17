@@ -1,3 +1,8 @@
+
+let textArea = document.getElementById('textContainer');
+let paragraph = textArea.querySelector('p');
+
+let logo = document.getElementById('logo')
 let section = document.getElementById('sectionOne')
 let main = document.querySelector('main');
 let content = document.getElementsByTagName('body')[0]
@@ -7,9 +12,9 @@ let spanReplace = document.getElementById('spanReplace')
 let scrollReplace = document.getElementById('scrollReplace');
 let scroll = document.getElementById('bottomNav');
 let span = spanReplace.querySelector('span')
-
 let windTurbin = document.getElementById('windTurbin');
 let windTurbinSpin = document.getElementById('windTurbinSpin');
+
 
 let backgroundImg= '';
 
@@ -20,8 +25,36 @@ let rightPosition = 200;
 let spinerPosition = 7.5;
 let lastScroll = 0;
 
-let oldScrolY = window.scrollY;
+function controllAnimation(element,textcontent,removeClass,arrOfClasses,event){
+    if(event == 'event'){
+        for(let i = 0; i< removeClass.length; i++){
+            element.classList.remove(removeClass[i])
+        }
+        element.addEventListener('animationend', (e) => {
+            console.log('animationEnd');
+            
+            
+            for(let i = 0; i< arrOfClasses.length; i++){
+                element.classList.add(arrOfClasses[i]);
+            }
+            
+        })
+    }else if(removeClass !== ''){
+        for(let i = 0; i< removeClass.length; i++){
+            element.classList.remove(removeClass[i])
+        }
+    }else{
+        element.textContent = textcontent;
+        for(let i = 0; i< arrOfClasses.length; i++){
+            element.classList.add(arrOfClasses[i]);
+        }
+    }
+    
+}
 
+let oldScrolY = window.scrollY;
+console.log('main');
+let action = 'print'
 
 window.addEventListener('wheel',() => {
     if(oldScrolY < window.scrollY){
@@ -31,26 +64,64 @@ window.addEventListener('wheel',() => {
     }
     oldScrolY = window.scrollY
 
+    
+
     if(paragraph.textContent == ''){
-        heading.textContent = textContentArr[0]
-        paragraph.textContent = textContentArr[1]
+        controllAnimation(heading,textContentArr[0],'',['animate__animated','animate__zoomIn'],'')
+        controllAnimation(paragraph,textContentArr[1],'',['animate__animated','animate__zoomIn'],'')
     }else if(paragraph.textContent == textContentArr[1]){
+        controllAnimation(heading,textContentArr[0],'',['animate__animated','animate__zoomOut','animate__slow'],'')
+        controllAnimation(paragraph,textContentArr[1],'',['animate__animated','animate__zoomOut','animate__slow'],'')
+        paragraph.addEventListener('animationend', () => {
+            controllAnimation(heading,textContentArr[0],['animate__animated','animate__zoomOut','animate__slow'],'','')
+            controllAnimation(paragraph,textContentArr[1],['animate__animated','animate__zoomOut','animate__slow'],'','')
+            controllAnimation(paragraph,textContentArr[2],'',['animate__animated','animate__zoomIn','animate__delay-1s'],'')
+            controllAnimation(heading,textContentArr[0],'',['animate__animated','animate__zoomIn','animate__delay-1s'],'')
+        })
         scrollReplace.replaceWith(spanReplace)
-        paragraph.textContent =  textContentArr[2]
     }else if(paragraph.textContent == textContentArr[2]){
+        controllAnimation(heading,textContentArr[0],'',['animate__animated','animate__zoomOut','animate__slow'],'')
+        controllAnimation(paragraph,textContentArr[2],'',['animate__animated','animate__zoomOut','animate__slow'],'')
+
+        paragraph.addEventListener('animationend', () => {
+            controllAnimation(heading,textContentArr[0],['animate__animated','animate__zoomOut','animate__slow'],'','')
+            controllAnimation(paragraph,textContentArr[2],['animate__animated','animate__zoomOut','animate__slow'],'','')
+            controllAnimation(paragraph,textContentArr[3],'',['animate__animated','animate__zoomIn','animate__delay-1s'],'')
+            controllAnimation(heading,textContentArr[0],'',['animate__animated','animate__zoomIn','animate__delay-1s'],'')
+        })
+
         span.textContent = '02 /'
-        paragraph.textContent =  textContentArr[3]
     }else if(paragraph.textContent == textContentArr[3]){
+        controllAnimation(heading,textContentArr[0],'',['animate__animated','animate__zoomOut','animate__slow'],'')
+        controllAnimation(paragraph,textContentArr[3],'',['animate__animated','animate__zoomOut','animate__slow'],'')
+
+        paragraph.addEventListener('animationend', () => {
+            controllAnimation(heading,textContentArr[0],['animate__animated','animate__zoomOut','animate__slow'],'','')
+            controllAnimation(paragraph,textContentArr[3],['animate__animated','animate__zoomOut','animate__slow'],'','')
+            controllAnimation(paragraph,textContentArr[4],'',['animate__animated','animate__zoomIn','animate__delay-1s'],'')
+            controllAnimation(heading,textContentArr[0],'',['animate__animated','animate__zoomIn','animate__delay-1s'],'')
+        })
         span.textContent = '03 /'
-        paragraph.textContent =  textContentArr[4]
+
     }else if(paragraph.textContent == textContentArr[4]){
         let section = document.getElementById('sectionOne')
-        heading.remove();
+        heading.textContent = '';
         paragraph.remove();
         spanReplace.remove();
         backgroundImg = createElement('img',section,'backgroundImg', ['src','../img/myBackground.png','alt','backgorund misssign'],'','','','')
         paragraph.textContent ='stop';
     }else if(backgroundImg !== ''){
+        console.log(rightPosition);
+        if(rightPosition <= 199){
+            console.log('hi');
+            controllAnimation(heading,'Why do you need to join our workshops?','',['animate__animated','animate__zoomIn','animate__delay-1s'],'')
+            
+        }
+        if(rightPosition <= 90){
+            
+            createElement('div',section,'bigCircle','','','','printOnce','')
+            action = 'printOnce'
+        }
         
         if(rightPosition > 0 ){
             backgroundImg.style.right = `-${rightPosition}%`;
@@ -65,6 +136,7 @@ window.addEventListener('wheel',() => {
             windTurbinSpin.style.left = `${spinerPosition}%`;
             spinerPosition--
         }
+        
 
     }
 
@@ -86,10 +158,7 @@ if(screen.width < 800){
 }
 
 
-let textArea = document.getElementById('textContainer');
-let paragraph = textArea.querySelector('p');
 
-let logo = document.getElementById('logo')
 
 
 
@@ -100,6 +169,9 @@ let textContentArr = ['Green Lead','Guiding the green energy transition','GreenL
 
 function createElement(type, parent, id, attributeArr,
     eventListenerArr, classArr, action, context,) {
+    if(action == 'printOnce'){
+        return;
+    }
 
     let container = document.createElement(type);
     
