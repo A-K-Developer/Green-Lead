@@ -1,7 +1,58 @@
-let main = document.querySelector('main');
+
 let frame = document.getElementById('frame');
 let firstThree = document.getElementById('firstThree');
 
+/* Arrrows  */
+let currentPage = pageNumber.querySelector('span')
+
+let leftArrow = document.querySelector('.leftArrow');
+let rightArrow= document.querySelector('.rightArrow');
+
+
+rightArrow.addEventListener('click',rightArrowClick);
+leftArrow.addEventListener('click',leftArrowClick)
+
+function rightArrowClick(){
+    if(currentPage.textContent == '01 /'){
+        currentPage.textContent = '02 /';
+        paragraph.textContent = textContentArr[0]
+    }else if(currentPage.textContent == '02 /'){
+        currentPage.textContent = '03 /'
+        paragraph.textContent =  textContentArr[1]
+            
+    }else if(currentPage.textContent == '00 /'){
+        currentPage.textContent = '01 /'
+        paragraph.textContent =  textContentArr[2]
+    }
+    turbin.classList.add('windAnimation')
+
+    pageNumber.style.zIndex = 1;
+    logo.style.zIndex = 1
+    leftArrow.style.zIndex = 1
+
+    
+}
+function leftArrowClick(){
+    turbin.classList.add('windAnimation')
+
+    if(currentPage.textContent == '01 /'){
+        paragraph.textContent = textContentArr[3];
+        currentPage.textContent = '00 /';
+        pageNumber.style.zIndex = -1;
+        logo.style.zIndex = -1
+        leftArrow.style.zIndex = -1
+    }else if(currentPage.textContent == '02 /'){
+        paragraph.textContent = textContentArr[2]
+        currentPage.textContent = '01 /';
+    }else if(currentPage.textContent == '03 /'){
+        currentPage.textContent = '02 /'
+        paragraph.textContent =  textContentArr[0]
+    }   
+    
+}
+
+
+/* End */
 
 window.addEventListener('scroll',() => console.log('scroll on window element'));
 console.log('Hello i am Main.js');

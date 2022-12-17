@@ -4,14 +4,197 @@
     --fontSizeMobileV1: 20px;
     --fontFamily: "Verdana";
 }
-html{
+*{
     margin: 0;
     padding: 0;
+    box-sizing: border-box ;
 }
-body{
-    margin: 0;
-    padding: 0;
+html,body,.main-container,.container{
+    scroll-behavior: smooth;
 }
+
+#main-container{
+    width: 100vw;
+    max-height: 100vh;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    background-color: var(--backgroundColor);
+   
+
+}
+#main-container:after{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color:var(--backgroundColor)
+
+}
+#frame{
+    position:fixed;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    padding: 2em 4em;
+    z-index: 12;
+}
+.nav2{
+    position:fixed;
+    display: flex;
+    right: 1em;
+    top: 6em;
+}
+.nav3{
+    position:fixed;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    left: 220px;
+}
+.scrollCursor{
+    width: 20px;
+    height: 20px;
+}
+.windturbin{
+    width: 5%;
+    height:50%;
+    position: absolute;
+    bottom: 0%;
+    left: 25%;
+
+}
+.windturbinSpin{
+    width: 40%;
+    height: 60%;
+    position: absolute;
+    bottom: 17%;
+    left: 7.5%;
+    
+}
+.windAnimation{
+    animation-name: windTurbin;
+    animation-duration: 3s;
+}
+
+@keyframes windTurbin{
+    0%{ }
+    100%{ transform: rotate(360deg)}
+}
+#header{
+    position: fixed;
+    width: 80%;
+    height: 5%;
+    display: flex;
+    justify-content: space-between;
+}
+#logo{
+    border: 1px solid black;
+    padding: 0 15px;
+}
+.btn{
+    width: 10%;
+    height: 2em;
+    background-color: transparent;
+    border: 1px solid var(--fontColor);
+    color: var(--fontColor);
+    font-size: 0.9em;
+    font-weight: bold;
+    border-radius: 4px;
+}
+.icon{
+    width: 30px;
+    height: 40px;
+}
+#sideNav{
+    position: fixed;
+    height: 70%;
+    width: 10%;
+    z-index: 1;
+    right: 0%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    
+}
+.line {
+    width: 1px;
+    height: 150px;
+    background-color: var(--fontColor);
+   
+}
+.line3{
+    position: fixed;
+    right: 5%;
+    width: 200px;
+    height: 1px;
+    bottom: 10%;
+    transform: rotate(180deg);
+}
+
+.social{
+    width: 30px;
+    height: 30px;
+}
+#bottomNav{
+    height: 10%;
+    position: fixed;
+    justify-content: flex-end;
+    bottom: 10%;
+    right: 10%;
+}
+.container{
+   width: 400vw;
+   display: flex;
+   flex-direction: row;
+   background-color: var(--backgroundColor);
+    
+}
+.sections{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 8em;
+    z-index: 11;
+}
+#textContainer{
+    color: var(--fontColor);
+    width: 60%;
+    height: 50%;
+    margin-top: 50px;
+    margin-right: -20px;
+    text-align: center;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+    
+}
+img{
+    width: 20%;
+    height: 40%;
+    
+}
+/* scroll */
+::-webkit-scrollbar {
+    display: none;
+}
+
+#backgroundImg{
+    width: 2000px;
+    height: 100vh;
+    position: absolute;
+    right: -220%;
+    bottom: 0px;
+    z-index: 22;
+}
+
+
 
 /* Mobile version under 800px */
 #verticalDevice{
@@ -56,143 +239,6 @@ body{
 #imgContainer{
     display: flex;
 }
-/* first 3 Pages */
-#firstThree{
-    width: 100vw;
-    height: 100vh;
-    position: relative;
-    background-color: var(--backgroundColor);
-}
-#header{
-    width: 80%;
-    height: 20px;
-    display: flex;
-    justify-content: space-between;
-    padding: 5% 10%;
-}
-#logo{
-    z-index: -2;
-}
-.icon{
-    width: 30px;
-    height: 40px;
-}
-#sideNav{
-    position: absolute;
-    height: 70vh;
-    width: 10%;
-    z-index: 1;
-    right: 0%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: center;
-    
-}
-.social{
-    width: 30px;
-    height: 30px;
-}
-.line {
-    width: 1px;
-    height: 150px;
-    background-color: var(--fontColor);
-   
-}
-.line1{
-
-}
-.line2{
-
-}
-
-.line3{
-    position: absolute;
-    right: 5%;
-    width: 150px;
-    height: 1px;
-    bottom: 35%;
-}
-
-#bottomNav{
-    width: 100%;
-    height: 10%;
-    position: absolute;
-    bottom: 0%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: flex-start;
-}
-#pageNumber{
-    position: absolute;
-    z-index: -2;
-    right: 15%;
-    color: var(--fontColor);
-}
-#pageNumber h1{
-    font-size: 10px;
-    font-weight: normal;
-}
-#pageNumber h1 span{
-    font-size: 15px;
-    font-weight: bold;
-
-}
-.leftArrow{
-    transform: rotate(180deg);
-    position: relative;
-    left: 8%;
-    bottom: 15%;
-    z-index: -3;
-}
-.rightArrow{
-    position: relative;
-    right: 8%;
-    bottom: 15%;
-    z-index: 10;
-}
-.showInfo{
-    width: 70%;
-    height: 70%;
-    margin: auto;
-    display: flex;
-    flex-direction: row;
-}
-.windturbin{
-    width: 5%;
-    height:50%;
-    position: absolute;
-    bottom: 0%;
-    left: 25%;
-
-}
-.windturbinSpin{
-    width: 40%;
-    height: 60%;
-    position: absolute;
-    bottom: 17%;
-    left: 7.5%;
-    
-}
-.windAnimation{
-    animation-name: windTurbin;
-    animation-duration: 3s;
-}
-
-@keyframes windTurbin{
-    0%{ }
-    100%{ transform: rotate(360deg)}
-}
-#content{
-    height: 100%
-}
-
-#canva{
-    background-image: url(../img/background.png);
-    width: 100%;
-    height: 100%;
-}
 /* Form Example */
 #formExample{
     display: none;
@@ -201,16 +247,3 @@ body{
     text-transform: uppercase;
 }
 
-#textContainer{
-    width: 439px;
-    height: 196px;
-    display: flex;
-    flex-direction: column;
-    font-family: var(--fontFamily);
-    color: var(--fontColor);
-    margin: auto;
-    position: relative;
-    top: 0%;
-    left: 13%;
-    align-items: center;
-}

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,46 +13,54 @@
     <script src="https://unpkg.com/page/page.js"></script>
 
     <link rel="stylesheet" href="../src/style.css">
-    </head>
+</head>
+
 <body>
-    
+
     <main>
-        <section id="firstThree">
-            <section id="header">
-                <img src="../img/hand-cursor.png" alt="Logo missing" id="logo">
-                <button class="btn">Portfolio</button>
-            </section>
-            <section id="sideNav">
-                <div class="line line1"></div>
-                <img src="../img/gmail.png" alt="gmailiconMissing" class="icon social">
-                <img src="../img/insta.png" alt="insta icon missing " class="icon social">
-                <div class="line lin2"></div>
-            </section>
-            <section id="bottomNav">
-                <img src="../img/rightArrow.png" alt="gmailiconMissing" class="icon leftArrow">
-                <img src="../img/hand-cursor.png" alt="gmailiconMissing" class="icon">
-                <img src="../img/rightArrow.png" alt="gmailiconMissing" class="icon rightArrow">
-                <div class="line line3"></div>
-                <div id="pageNumber">
-                    <h1> <span class="currentPage">00 /</span> 03</h1>
-                </div>
+        <div id="main-container">
 
+            <section id="frame">
+                <section id="header" class="nav nav1">
+                    <img src="../img/scrollCursor.png" alt="Logo missing" id="logo">
+                    <button class="btn">Portfolio</button>
+                </section>
+                <section id="sideNav" class="nav nav2">
+                    <div class="line line1"></div>
+                    <img src="../img/gmail.png" alt="gmailiconMissing" class="icon social">
+                    <img src="../img/insta.png" alt="insta icon missing " class="icon social">
+                    <div class="line lin2"></div>
+                </section>
+                <section id="bottomNav" class="nav nav3">
+                    <img id="scrollReplace" src="../img/scrollCursor.png" alt="gmailiconMissing" class="icon scrollCursor">
+                    <div class="line line3"></div>
+                </section>
             </section>
-            <div class="showInfo">
-                <img class="windturbin" src="../img/Artboard3.png" alt="imgMissing">
-                <img class="windturbinSpin" src="../img/Artboard4.png" alt="Img Missing">
-                <div id="textContainer">
-                    <h1 class="heading">Green Lead</h1>
-                    <p>Guiding the green energy transition​</p>
+            <section class="container">
+                <div id="sectionOne" class="sections">
+                    <div id="imageContainer">
+                        <img id="windTurbin" class="wind windturbin" src="../img/Artboard3.png" alt="imgMissing">
+                        <img id="windTurbinSpin" class="wind windturbinSpin" src="../img/Artboard4.png" alt="Img Missing">
+                    </div>
+                    <div id="textContainer">
+                        <h1 class="heading"></h1>
+                        <p></p>
+                    </div>
                 </div>
-            </div>
-        </section>
-       <section id="canva">
-        
-       </section>
-       
+                <section id="sectiontwo">
+                
+                </section>
+                <section id="sectionthre">
+                    
+                </section>
+            </section>
+            
+        </div>
+            
     </main>
-
+    <h1 id="spanReplace">
+        <span>01 /</span> 03
+    </h1>
 
     <div id="formExample">
         <form class="add">
@@ -72,6 +81,5 @@
     </div>
     <script src="bundle.js"></script>
 </body>
+
 </html>
-
-
