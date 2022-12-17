@@ -19,7 +19,18 @@ let windLeftPosition = 25;
 let rightPosition = 200;
 let spinerPosition = 7.5;
 let lastScroll = 0;
+
+let oldScrolY = window.scrollY;
+
+
 window.addEventListener('wheel',() => {
+    if(oldScrolY < window.scrollY){
+        console.log('Down' + oldScrolY);
+    }else{
+        console.log('Up'+ oldScrolY);
+    }
+    oldScrolY = window.scrollY
+
     if(paragraph.textContent == ''){
         heading.textContent = textContentArr[0]
         paragraph.textContent = textContentArr[1]
