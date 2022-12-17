@@ -12,32 +12,8 @@ body{
     margin: 0;
     padding: 0;
 }
-#frame{
-    width: 100vh;
-    height: 100vw;
-    transform: rotate(-90deg) translateX(-100vh);
-    transform-origin: top left; 
-    overflow-y: scroll;
-    overflow-x: hidden;
-    position: absolute;
-    scrollbar-width: none;
-    -ms-overflow-style:none;
-}
-#content{
-    display: flex;
-    flex-direction: row;
-    width: 400vw;
-    transform: rotate(90deg) translateY(-100vh);
-    transform-origin: top left ;
-}
-.slide { 
-    width: 100vw;
-    height: 100vh;
-    
-}
-::-webkit-scrollbar{
-    display: none;
-}
+
+/* Mobile version under 800px */
 #verticalDevice{
     background-color: var(--backgroundColor);
     width: 100vw;
@@ -47,6 +23,7 @@ body{
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 10px;
 }
 #verticalDevice p{
     width: 50%;
@@ -55,31 +32,185 @@ body{
     font-family: var(--fontFamily);
 
 }
-
-.one{background-color: var(--backgroundColor);}
-.two{background-color: blue;}
-.three{background-color: red;}
-
-#formExample{
-    display: none;
-}
 #verticalDevice img{
     width: 82px;
     height: 165px;
 }
+.phone{
+    width: 100px;
+    position: relative;
+    margin: 0;
+    padding: 0;
+    margin: 20px;
+}
+.phoneX{
+  top: 5%;
+    
+}
+.phoneY{
+    transform: rotate(90deg);
+    position: relative;
+    bottom: -23%;
+    left: 10%;
+}
 #imgContainer{
     display: flex;
 }
-#frameContainer{
-    width: 100%;
-    height: 100%;
-    z-index: 1;
-    position: sticky;
-    left: 10%;
-    top: 0%;
-   
-
+/* first 3 Pages */
+#firstThree{
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    background-color: var(--backgroundColor);
+}
+#header{
+    width: 80%;
+    height: 20px;
+    display: flex;
+    justify-content: space-between;
+    padding: 5% 10%;
+}
+#logo{
+    z-index: -2;
 }
 .icon{
     width: 30px;
+    height: 40px;
+}
+#sideNav{
+    position: absolute;
+    height: 70vh;
+    width: 10%;
+    z-index: 1;
+    right: 0%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    
+}
+.social{
+    width: 30px;
+    height: 30px;
+}
+.line {
+    width: 1px;
+    height: 150px;
+    background-color: var(--fontColor);
+   
+}
+.line1{
+
+}
+.line2{
+
+}
+
+.line3{
+    position: absolute;
+    right: 5%;
+    width: 150px;
+    height: 1px;
+    bottom: 35%;
+}
+
+#bottomNav{
+    width: 100%;
+    height: 10%;
+    position: absolute;
+    bottom: 0%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+#pageNumber{
+    position: absolute;
+    z-index: -2;
+    right: 15%;
+    color: var(--fontColor);
+}
+#pageNumber h1{
+    font-size: 10px;
+    font-weight: normal;
+}
+#pageNumber h1 span{
+    font-size: 15px;
+    font-weight: bold;
+
+}
+.leftArrow{
+    transform: rotate(180deg);
+    position: relative;
+    left: 8%;
+    bottom: 15%;
+    z-index: -3;
+}
+.rightArrow{
+    position: relative;
+    right: 8%;
+    bottom: 15%;
+    z-index: 10;
+}
+.showInfo{
+    width: 70%;
+    height: 70%;
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+}
+.windturbin{
+    width: 5%;
+    height:50%;
+    position: absolute;
+    bottom: 0%;
+    left: 25%;
+
+}
+.windturbinSpin{
+    width: 40%;
+    height: 60%;
+    position: absolute;
+    bottom: 17%;
+    left: 7.5%;
+    
+}
+.windAnimation{
+    animation-name: windTurbin;
+    animation-duration: 3s;
+}
+
+@keyframes windTurbin{
+    0%{ }
+    100%{ transform: rotate(360deg)}
+}
+#content{
+    height: 100%
+}
+
+#canva{
+    background-image: url(../img/background.png);
+    width: 100%;
+    height: 100%;
+}
+/* Form Example */
+#formExample{
+    display: none;
+}
+.heading{
+    text-transform: uppercase;
+}
+
+#textContainer{
+    width: 439px;
+    height: 196px;
+    display: flex;
+    flex-direction: column;
+    font-family: var(--fontFamily);
+    color: var(--fontColor);
+    margin: auto;
+    position: relative;
+    top: 0%;
+    left: 13%;
+    align-items: center;
 }

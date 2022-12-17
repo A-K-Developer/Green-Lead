@@ -1,75 +1,84 @@
+let firstThree = document.getElementById('firstThree');
 let main = document.querySelector('main');
+let content = document.getElementsByTagName('body')[0]
 
-window.addEventListener('scroll',() => console.log('scroll on window element'));
-console.log('Hello i am Main.js');
+let lastScroll = 0;
+window.addEventListener('wheel',() => {
+    let currentScroll = window.pageYOffset;
+    if(currentScroll - lastScroll >0){
+        console.log(lastScroll)
+    }else{
+        console.log(currentScroll)
+    }
+
+    lastScroll = currentScroll
+console.log(currentScroll)
+
+});
 if(screen.width < 800){
-    console.log('Mobile under 800px')
+    firstThree.style.display = 'none';
     let verticalDevice = createElement('div',main, 'verticalDevice','','','','','')
     createElement('p',verticalDevice,'','','','','',`Hi.`)
     createElement('p',verticalDevice,'','','','','',`For a better experience,please, turn your device horizontally.`)
     let imgContainer = createElement('div',verticalDevice, 'imgContainer','','','','','')
     createElement('img',imgContainer,'',['src','../img/mobile.png','alt','deviceImg'],'',['phone','phoneX'],'','')
     createElement('img',imgContainer,'',['src','../img/1.png','alt','deviceImg'],'',['phone','phoneY'],'','')
-}else{
-    canvasforMobile(main)
-    createSlideShow();
-}   
-
-function createSlideShow(){
-    let frame = createElement('div',main,'frame','','','','','')
-    let content = createElement('div',frame,'content','','','','','')
-    let slideOne = createElement('div',content,'','','',['slide','one'],'','')
-    
-    
-    slideOne.addEventListener('scroll' , (e) => {
-        console.log('scroll on slide');
-    })
-    createElement('img',slideOne,'',['src','../img/Artboard3.png','alt','ImgMissing'],'',['windturbin'],'','',)
-    createElement('img',slideOne,'',['src','../img/Artboard4.png','alt','ImgMissing'],'',['windturbinSpin'],'','',)
-
-
-    let textContent = createElement('section',slideOne,'textContainer','','','','','');
-    createElement('h1',textContent,'','','',['heading'],'','Green Lead');
-    createElement('p',textContent,'','','','','','Guiding the green energy transition')
-
-    createElement('div',content,'','','',['slide','two'],'','')
-    createElement('div',content,'','','',['slide','three'],'','')
-
-    
-}
-function canvasforMobile(main){
-    let slideFrameContainer = createElement('section',main,'frameContainer','','','','','');
-    let header = createElement('section',slideFrameContainer,'header','','','','','')
-    createElement('img',header,'logo',['src','../img/hand-cursor.png','alt','iconMissing-insta'],'',['icon'],'','')
-    createElement('button',header,'','','',['btn'],'','Portfolio')
-
-    let sideNav = createElement('section',slideFrameContainer,'sideNav','','','','','');
-    createElement('div',sideNav,'','','',['line', 'line1'],'','','',);
-    createElement('img',sideNav,'',['src','../img/gmail.png','alt','iconMissing-gmail'],'',['icon'],'','')
-    createElement('img',sideNav,'',['src','../img/insta.png','alt','iconMissing-insta'],'',['icon'],'','')
-    createElement('div',sideNav,'','','',['line', 'line2'],'','','');
-
-    let bottomNav = createElement('section',slideFrameContainer,'bottomNav','','','','','');
-    createElement('img',bottomNav,'',['src','../img/rightArrow.png','alt','iconMissing-insta'],'',['icon','leftArrow'],'','')
-    createElement('img',bottomNav,'',['src','../img/hand-cursor.png','alt','iconMissing-insta'],'',['icon'],'','')
-    createElement('img',bottomNav,'',['src','../img/rightArrow.png','alt','iconMissing-insta'],'',['icon'],'','')
-    createElement('div',bottomNav,'','','',['line', 'line3'],'','');
-
-    slideFrameContainer.addEventListener('click', (e) => {
-        console.log('hello maci');
-    })
 }
 
-/*
-    <div id="frame">
-        <div id="content">
-            <div class="slide one"></div>
-            <div class="slide two"></div>
-            <div class="slide three"></div>
+let leftArrow = document.querySelector('.leftArrow');
+let rightArrow= document.querySelector('.rightArrow');
+let turbin = document.querySelector('.windturbinSpin');
+let textArea = document.getElementById('textContainer');
+let paragraph = textArea.querySelector('p');
+let pageNumber = document.getElementById('pageNumber');
+let logo = document.getElementById('logo')
+let currentPage = pageNumber.querySelector('span')
+let trip = document.getElementById('frame');
 
-        </div>    
-    </div>
- */
+rightArrow.addEventListener('click',rightArrowClick);
+leftArrow.addEventListener('click',leftArrowClick)
+
+function rightArrowClick(){
+    if(currentPage.textContent == '01 /'){
+        currentPage.textContent = '02 /';
+        paragraph.textContent = 'Then GreenLead is able to help you. Over the past 10 years, we have worked with exactly that field, from wind turbines, arctic hydropower, energy storage, waste-to-energy, solar cells, and energy optimization of plants. Our projects range from smaller projects of around 1 million. DKK up to projects up to 3 billion DKK. '
+    }else if(currentPage.textContent == '02 /'){
+        currentPage.textContent = '03 /'
+        paragraph.textContent = 'Does your company have a vision for a green transition and do you need help to convert the vision into an action plan? Or do you lack experts who can guide you to the best green investments on the market?'
+            
+    }else if(currentPage.textContent == '00 /'){
+        currentPage.textContent = '01 /'
+        paragraph.textContent = 'GreenLead advises on renewable energy systems. We have a large portfolio of projects and a broad network of investors - we often work in the empty space between financing and the project. We specialize in designing green projects and describing the project to investors as well as finding the right projects for the right investor. This means making the green transition a reality.'
+    }
+    turbin.classList.add('windAnimation')
+
+    pageNumber.style.zIndex = 1;
+    logo.style.zIndex = 1
+    leftArrow.style.zIndex = 1
+
+    turbin.addEventListener('animationend',()=> {
+        turbin.classList.remove('windAnimation')
+    })
+}
+function leftArrowClick(){
+    turbin.classList.add('windAnimation')
+
+    if(currentPage.textContent == '01 /'){
+        paragraph.textContent = 'Guiding the green energy transition';
+        currentPage.textContent = '00 /';
+        pageNumber.style.zIndex = -1;
+        logo.style.zIndex = -1
+        leftArrow.style.zIndex = -1
+    }else if(currentPage.textContent == '02 /'){
+        paragraph.textContent ='GreenLead advises on renewable energy systems. We have a large portfolio of projects and a broad network of investors - we often work in the empty space between financing and the project. We specialize in designing green projects and describing the project to investors as well as finding the right projects for the right investor. This means making the green transition a reality.';
+        currentPage.textContent = '01 /';
+    }else if(currentPage.textContent == '03 /'){
+        currentPage.textContent = '02 /'
+        paragraph.textContent = 'Then GreenLead is able to help you. Over the past 10 years, we have worked with exactly that field, from wind turbines, arctic hydropower, energy storage, waste-to-energy, solar cells, and energy optimization of plants. Our projects range from smaller projects of around 1 million. DKK up to projects up to 3 billion DKK.'
+    }   
+    
+}
+
 function createElement(type, parent, id, attributeArr,
     eventListenerArr, classArr, action, context,) {
 
