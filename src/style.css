@@ -70,18 +70,27 @@ html,body,.main-container,.container{
     width: 40%;
     height: 60%;
     position: absolute;
-    bottom: 17%;
-    left: 7.5%;
+    bottom: 16%;
+    left: 7.3%;
     
 }
 .windAnimation{
     animation-name: windTurbin;
     animation-duration: 2s;
 }
+.windAnimationUp{
+    animation-name: windTurbinUp;
+    animation-duration: 2s;
+
+}
 
 @keyframes windTurbin{
     0%{ }
     100%{ transform: rotate(120deg)}
+}
+@keyframes windTurbinUp {
+    0%{ }
+    100%{ transform: rotate(-120deg)}
 }
 #header{
     position: fixed;
@@ -91,7 +100,7 @@ html,body,.main-container,.container{
     justify-content: space-between;
 }
 #logo{
-    border: 1px solid black;
+    width: 120px;
     padding: 0 15px;
 }
 .btn{
