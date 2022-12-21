@@ -144,6 +144,8 @@ window.addEventListener('wheel', (e) => {
 
                     if(opacityOverlay){
                         videoContainer.classList.add('videoCon');
+                        opacityOverlay.remove();
+                        
 
                     }
                     if(h1Tag){
