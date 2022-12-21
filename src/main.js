@@ -4,39 +4,44 @@ import {
 
 let textArea = document.getElementById('textContainer');
 let paragraph = textArea.querySelector('p');
-
-
-
-let logo = document.getElementById('logo')
 let section = document.getElementById('sectionOne')
-let section2 = document.getElementById('sectiontwo')
 let main = document.querySelector('main');
 let content = document.getElementsByTagName('body')[0]
 let videoContainer = document.getElementById('frame')
 let textContainer = document.getElementById('textContainer')
 let heading = textContainer.querySelector('h1')
 let spanReplace = document.getElementById('spanReplace')
-let scrollReplace = document.getElementById('scrollReplace');
-let scroll = document.getElementById('bottomNav');
+let scrollReplace = document.getElementById('replaceMouse');
 let span = spanReplace.querySelector('span')
-let windTurbin = document.getElementById('windTurbin');
-let windTurbinSpin = document.getElementById('windTurbinSpin');
 let windContainerArr = Array.from(document.getElementsByClassName('windContainer'));
 let backgroundImg = '';
-let windLeftPosition = 25;
+
 let rightPosition = 240;
-let spinerPosition = 7.5;
-let lastScroll = 0;
-let action = 'print'
+
 let emptyString = createElement('p', main, '', '', '', '', '', '')
 let turbinContainer = document.getElementById('imageContainer');
-let newTurbin = turbinContainer.cloneNode(true)
+
 let activeScrollDown = false;
-let mainContainer = document.getElementById('main-container');
+
 
 let top = 400;
 
 spanReplace.remove()
+let emailIcon = document.getElementsByClassName('gmailIcon')[0];
+emailIcon.addEventListener('click', ()=>{
+    window.location.href = 'mailto:info@GreenLead.dk'
+})
+let linkedIn = document.getElementsByClassName('linkedIn')[0];
+linkedIn.addEventListener('click',() =>{ 
+    window.location.href = 'https://www.linkedin.com/company/greenlead-dk/'
+})
+
+let btn = document.getElementsByClassName('btn')[0];
+btn.addEventListener('click',portfolio)
+function portfolio(){
+    window.location.href = 'https://www.greenlead.dk/'
+    console.log('hi');
+}
 
 let textContentArr = ['Green Lead', 'Guiding the green energy transition',
     'GreenLead advises on renewable energy systems. We have a large portfolio of projects and a broad network of investors - we often work in the empty space between financing and the project. We specialize in designing green projects and describing the project to investors as well as finding the right projects for the right investor. This means making the green transition a reality.',
@@ -44,25 +49,8 @@ let textContentArr = ['Green Lead', 'Guiding the green energy transition',
     'Does your company have a vision for a green transition and do you need help to convert the vision into an action plan? Or do you lack experts who can guide you to the best green investments on the market?', ''
 ]
 
-setInterval(moveCursor, 1010)
-
-function moveCursor() {
-    scrollReplace.style.top = '10px';
-    scrollReplace.style.bottom = '20px'
-
-}
-
-
 window.addEventListener('wheel', (e) => {
     let wDelta = e.wheelDelta < 0 ? 'down' : 'up';
-
-
-    if (wDelta == 'down') {
-        console.log('Yes');
-    } else {
-        console.log('No');
-
-    }
     if (paragraph.textContent == '') {
         if (wDelta == 'down') {
             turbinSpin('down')
@@ -144,6 +132,13 @@ window.addEventListener('wheel', (e) => {
 
                     if(opacityOverlay){
                         videoContainer.classList.add('videoCon');
+                        let finalVideoContainer = createElement('div',content,'finalVideoContainer','','','','','');
+                        createElement('div',finalVideoContainer,'video','','','','');
+                        createElement('section',finalVideoContainer,'sectionWithEffects','','','','','');
+                        let dots = createElement('div',finalVideoContainer,'dots','','','','');
+                        createElement('div',dots,'','','',['dot'],'','')
+                        createElement('div',dots,'','','',['dot'],'','')
+                        createElement('div',dots,'','','',['dot'],'','')
                         opacityOverlay.remove();
                         
 
@@ -160,9 +155,6 @@ window.addEventListener('wheel', (e) => {
                 }
             }
             imgWhenScroll.style.height = '1500px';
-            windContainerArr.forEach(x => {
-                console.log(x);
-            })
             console.log(imgWhenScroll.style.height);
 
             
@@ -178,7 +170,12 @@ window.addEventListener('wheel', (e) => {
             }
             if (rightPosition == 20) {
                 console.log('Scroll Down');
-
+                windContainerArr = Array.from(document.getElementsByClassName('windContainer'));
+                
+                windContainerArr.forEach(x => {
+                    x.remove()
+                    console.log(x);
+                })
                 activeScrollDown = true;
             }
 
