@@ -9,6 +9,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box ;
+    font-family: var(--fontFamily);
 }
 html,body,.main-container,.container{
     scroll-behavior: smooth;
@@ -74,6 +75,88 @@ html,body,.main-container,.container{
     left: 7.3%;
     
 }
+
+#backgroudContainer{
+    width: 1000px;
+    height: 100%;
+    position: relative;
+    top: 400px;
+    right: -240%;
+    z-index: 33;
+}
+#backgroundImg{
+    width: 2000px;
+    height:900px;
+    position: absolute;
+    right: 0%;   
+    bottom: 0;
+    z-index: 22;
+    
+    
+}
+#opacityOverlay{
+    background-color: black;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    z-index: 99;
+    opacity: 0.9;
+}
+.videoCon{
+    background-color: var(--backgroundColor);
+}
+.intreduceVideo{
+    position: absolute;
+    z-index: 90;
+    width: 50%;
+    left: 25%;
+    text-align: center;
+    color: var(--fontColor);
+
+}
+.windContainer{
+    position: absolute;
+    left: -150%;
+    bottom: 65%;
+    width: 600px;
+    height: 500px;
+    z-index: 40;
+}
+.container2{
+    bottom: 60%;
+    left: -130%;
+    width: 800px;
+    height: 700px;
+}
+.container3{
+    left: -130%;
+    bottom: 50%;
+    width: 700px;
+    height: 600px;
+}
+
+.wind3{
+    left: 10%;
+}
+.spin3{
+    left: -7.5%;
+}
+.wind4{
+    position: absolute;
+    left: 20%;
+}
+.spin4{
+    position: absolute;
+    left: 2.3%;
+}
+.wind5{
+    left: 40%;
+}
+.spin5{
+    left: 22%;
+}
 .windAnimation{
     animation-name: windTurbin;
     animation-duration: 2s;
@@ -92,6 +175,16 @@ html,body,.main-container,.container{
     0%{ }
     100%{ transform: rotate(-120deg)}
 }
+.video{
+    z-index: 13;
+}
+#scrollReplace{
+    width: 9%;
+    height: auto;
+    position: relative;
+    bottom: 10px;
+
+}
 #header{
     position: fixed;
     width: 80%;
@@ -100,8 +193,8 @@ html,body,.main-container,.container{
     justify-content: space-between;
 }
 #logo{
-    width: 120px;
-    padding: 0 15px;
+    width: 20%;
+    height: auto;
 }
 .btn{
     width: 10%;
@@ -161,8 +254,10 @@ html,body,.main-container,.container{
    display: flex;
    flex-direction: row;
    background-color: var(--backgroundColor);
+   overflow-y: hidden;
     
 }
+
 .sections{
     width: 100vw;
     height: 100vh;
@@ -185,6 +280,11 @@ html,body,.main-container,.container{
     justify-content: center;
     gap: 20px;
     
+}
+#textContainer p{
+    font-family: var(--fontFamily);
+    font-weight: lighter;
+    font-size: 14px;
 }
 #spanReplace{
     color: var(--fontColor);
@@ -210,13 +310,16 @@ img{
 ::-webkit-scrollbar {
     display: none;
 }
-
-#backgroundImg{
-    width: 2000px;
+#sectionOne{
+    max-height: 100vh;
     height: 100vh;
+    position: relative;
+
+}
+
+.turbin1{
     position: absolute;
-    right: -220%;
-    bottom: 0px;
+    left: 30%;
     z-index: 22;
 }
 
@@ -271,5 +374,12 @@ img{
 }
 .heading{
     text-transform: uppercase;
+    font-family: var(--fontFamily);
+}
+#spanReplace span{
+    font-weight: 800;
+}
+#spanReplace {
+     font-weight: 300;
 }
 
